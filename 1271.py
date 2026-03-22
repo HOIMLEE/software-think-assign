@@ -1,0 +1,6 @@
+a, b =map(int,input().split()) 
+c = int(a//b)
+d = int(a%b)
+
+print(c)
+print(d)
