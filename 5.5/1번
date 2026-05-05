@@ -1,0 +1,48 @@
+import random
+
+def rand(N):
+    value = N * N * 10
+    return [[random.randint(1, value - 1) for _ in range(N)] for _ in range(N)]
+
+def matrix_print(matrix):
+    for row in matrix:
+        for val in row:
+            print(f"{val:7}", end=" ")
+        print()
+    print()
+
+def mul(N, A, B, C):
+    result = [[0 for _ in range(N)] for _ in range(N)]
+    
+    for i in range(N):
+        for j in range(N):
+            temp_sum = 0
+            for k in range(N):
+                temp_sum += A[i][k] * B[k][j]
+            result[i][j] = temp_sum + C[i][j]
+            
+    return result
+
+N = int(input("1보다 크고 5보다 작거나 같은 N을 입력하세요: "))
+
+if 1 < N <= 5:
+    A = rand(N)
+    B = rand(N)
+    C = rand(N)
+    
+    print("[A 행렬]")
+    matrix_print(A) 
+    
+    print("[B 행렬]")
+    matrix_print(B)
+    
+    print("[C 행렬]")
+    matrix_print(C)
+    
+
+    print("[결과 행렬: A * B + C]")
+    final_result = mul(N, A, B, C)
+    matrix_print(final_result)
+
+else:
+    print()
