@@ -45,4 +45,4 @@ if 1 < N <= 5:
     matrix_print(final_result)
 
 else:
-    print()
+    print("입력오류")
